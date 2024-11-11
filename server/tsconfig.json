@@ -1,13 +1,15 @@
 {
   "extends": "../tsconfig.json",
   "compilerOptions": {
+    "composite": true ,
     /* Modules */
+    "resolveJsonModule": true,
     "rootDir": "src" /* Specify the root folder within your source files. */,
 
     /* Emit */
     "outDir": "dist" /* Specify an output folder for all emitted files. */
     // "noEmitOnError": true /* Disable emitting files if any type checking errors are reported. */
   },
-  "include": ["src"],
+  "include": ["src", "**/*.json"],
   "typeRoots": ["./node_modules/@types", "./src/types"]
 }
