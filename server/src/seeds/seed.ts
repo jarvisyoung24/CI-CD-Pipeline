@@ -9,6 +9,7 @@ const pythonQuestions = JSON.parse(fs.readFileSync('./src/seeds/pythonQuestions.
 
 db.once('open', async () => {
   await cleanDB('Question', 'questions');
+  console.log('DB cleaned!');
 
   await Question.insertMany(pythonQuestions);
 
