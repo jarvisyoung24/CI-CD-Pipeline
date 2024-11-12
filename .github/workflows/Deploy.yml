@@ -11,4 +11,4 @@ jobs:
     steps:
     - name: 'Deploy To Render'
       run: |
-        curl -x POST ${{ secrets.RENDER_DEPLOY_HOOK }}
+        curl POST ${{ secrets.RENDER_DEPLOY_HOOK }}
