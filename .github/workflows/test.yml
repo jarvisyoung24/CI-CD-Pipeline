@@ -12,14 +12,6 @@ jobs:
 
     runs-on: ubuntu-latest
 
-    services:
-      mongodb:
-        image: mongo
-        ports: 
-          - 27017:27017
-        options: --health-cmd "mongo --eval 'db.adminCommand({ping:1})'" --health-interval 10s --health-timeout 5s --health-retries 5
-            
-
     strategy:
       matrix:
         node-version: [22.x]
@@ -32,6 +24,12 @@ jobs:
       with:
         node-version: ${{ matrix.node-version }}
         cache: 'npm'
+
+    - name: Start MongoDB
+      run: |
+        docker run -d -p 27017:27017 --name mongodb mongo:latest
+        sleep 10
+        docker logs mongodb
     - name: Install Dependencies
       run: npm ci
     - name: Run Build If Present 
