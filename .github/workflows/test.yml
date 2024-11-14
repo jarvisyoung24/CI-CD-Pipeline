@@ -39,6 +39,6 @@ jobs:
       env: 
         MONGODB_URI: mongodb://localhost:27017/test
     - name: Run Tests
-      run: npm test
+      run: npm run test-component
       env: 
         MONGODB_URI: mongodb://localhost:27017/test
